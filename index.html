@@ -12,14 +12,51 @@
 
 <body>
   <header>
-    <h1>Weather Dashboard</h1>
+    <h1 class="text-center">Weather Dashboard</h1>
   </header>
 
   <main>
+    <div class="row d-flex flex-row">
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <h3 class="card-header">Search for a City:</h3>
+            <form id="city-form" class="card-body">
+                <input name="city" id="city" type="text" autofocus="true" class="form-input" />
+            </form>
+            <button id="search" type="submit" class=" btn btn-primary">Search</button>
+        </div>
 
+        <hr>
+
+        <div id="search-history"></div>
+
+    </div>
+
+    <div class="col-12 col-md-8">
+        <div class="row d-flex flex-row">
+            <div class="col-sm-12 border border-secondary">
+                <h2>Current City - Date</h2>
+                <p>Temp: <span id="current-temp"></span></p>
+                <p>Wind: <span id="current-wind_speed"></span></p>
+                <p>Humidity: <span id="current-humidity"></span></p>
+                <p>UV Index: <span id="current-uvi"></span></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row d-flex flex-row">
+            <div class="col-sm-12">
+                <h3>5-Day Forecast:</h3>
+            </div>
+        </div>
+    </div>
+    </div>
   </main>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
