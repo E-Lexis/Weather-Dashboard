@@ -1,0 +1,17 @@
+header {
+    background-image: linear-gradient(to right, blue , aqua);
+    margin: 10 0;
+    color: white;
+}
+
+p {
+    font-weight: bold;
+}
+
+.daily-card {
+    background-color: lightblue;
+}
+
+.history-btn {
+    margin: 10px; 
+}

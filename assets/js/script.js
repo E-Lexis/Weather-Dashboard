@@ -17,6 +17,9 @@ var data = document.querySelector("#search-history");
 searchHistory.forEach((search) => {
     searchEl = document.createElement("button");
     searchEl.innerHTML = search;
+    searchEl.classList.add("btn");
+    searchEl.classList.add("history-btn");
+    searchEl.classList.add("btn-secondary");
     data.appendChild(searchEl);
 });
 
@@ -24,6 +27,12 @@ $("#search").on("click", function () {
     event.preventDefault();
     var searchInput = document.querySelector("#city").value;
     getWeather(searchInput);
+});
+
+$(".history-btn").on("click", function () {
+    event.preventDefault();
+    var historySearch = document.querySelector(".history-btn").innerHTML;
+    getWeather(historySearch);
 });
 
 
@@ -58,6 +67,7 @@ function displayWeather(lat, lon) {
         response.json().then(function(weatherData) {
             console.log(weatherData);
             document.getElementById("current-date").innerText = new Date(weatherData.current.dt * 1000).toLocaleDateString("en-US");
+            document.getElementById("current-weather").src = "http://openweathermap.org/img/wn/" + weatherData.current.weather[0].icon +"@2x.png";
             document.getElementById("current-temp").innerText = weatherData.current.temp;
             document.getElementById("current-wind_speed").innerText = weatherData.current.wind_speed;
             document.getElementById("current-humidity").innerText = weatherData.current.humidity;
@@ -66,10 +76,27 @@ function displayWeather(lat, lon) {
             //Fills cards for 5-day forecast
             for (var i = 0; i < 5; i++) {
                 document.getElementById("d"+i+"-date").innerText = new Date(weatherData.daily[i].dt * 1000).toLocaleDateString("en-US");
+                document.getElementById("d"+i+"-weather").src = "http://openweathermap.org/img/wn/" + weatherData.daily[i].weather[0].icon +".png";
                 document.getElementById("d"+i+"-temp").innerText = weatherData.daily[i].temp.day;
                 document.getElementById("d"+i+"-wind_speed").innerText = weatherData.daily[i].wind_speed;
                 document.getElementById("d"+i+"-humidity").innerText = weatherData.daily[i].humidity;
                 document.getElementById("d"+i+"-uvi").innerText = weatherData.daily[i].uvi; 
+            }
+
+            // Colors for uv index
+            if ( (parseInt(weatherData.current.uvi) > 0) && (parseInt(weatherData.current.uvi) < 3) ) {
+                var uv = document.getElementById("current-uvi");
+                uv.classList.add("bg-success");
+            }
+
+            if ( (parseInt(weatherData.current.uvi) >= 3) && (parseInt(weatherData.current.uvi) < 6) ) {
+                var uv = document.getElementById("current-uvi");
+                uv.classList.add("bg-warning");
+            }
+
+            if ( (parseInt(weatherData.current.uvi) >= 6) && (parseInt(weatherData.current.uvi) < 10) ) {
+                var uv = document.getElementById("current-uvi");
+                uv.classList.add("bg-danger");
             }
         });
         }

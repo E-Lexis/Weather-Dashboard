@@ -12,7 +12,7 @@
 
 <body>
   <header>
-    <h1 class="text-center">Weather Dashboard</h1>
+    <h1 class="text-center font-weight-bold">Weather Dashboard</h1>
   </header>
 
   <main>
@@ -28,17 +28,17 @@
 
         <hr>
 
-        <div id="search-history"></div>
+        <div id="search-history" class="d-flex flex-column justify-content-between"></div>
 
     </div>
 
     <div class="col-12 col-md-8">
         <div class="row d-flex flex-row">
             <div class="col-sm-12 border border-secondary">
-                <h2><span id="current-city"></span> - <span id="current-date"></span> </h2>
-                <p>Temp: <span id="current-temp"> F</span></p>
-                <p>Wind: <span id="current-wind_speed"> MPH</span></p>
-                <p>Humidity: <span id="current-humidity">%</span></p>
+                <h2><span id="current-city"></span> - <span id="current-date"></span> <img id="current-weather" /></h2>
+                <p>Temp: <span id="current-temp"></span> F</p>
+                <p>Wind: <span id="current-wind_speed"></span>MPH</p>
+                <p>Humidity: <span id="current-humidity"></span>%</p>
                 <p>UV Index: <span id="current-uvi"></span></p>
             </div>
         </div>
@@ -48,46 +48,63 @@
         <div class="row d-flex flex-row">
             <div class="col-sm-12">
                 <h3>5-Day Forecast:</h3>
-                <div  id="daily-forecast" class="d-flex flex-row justify-content-around">
-                  <div class="card">
-                    <p><span id="d0-date"></span></p>
-                    <p>Temp: <span id="d0-temp"></span> F</p>
-                    <p>Wind: <span id="d0-wind_speed"></span> MPH</p>
-                    <p>Humidity: <span id="d0-humidity"></span>%</p>
-                    <p>UV Index: <span id="d0-uvi"></span></p>
-                  </div>
+                <div  id="daily-forecast" class="d-flex justify-content-around">
 
-                  <div class="card">
-                    <p><span id="d1-date"></span></p>
-                    <p>Temp: <span id="d1-temp"></span> F</p>
-                    <p>Wind: <span id="d1-wind_speed"></span> MPH</p>
-                    <p>Humidity: <span id="d1-humidity"></span>%</p>
-                    <p>UV Index: <span id="d1-uvi"></span></p>
-                  </div>
+                  
+                    <div class="card daily-card">
+                      <p><span id="d0-date"></span></p>
+                      <p><img id="d0-weather" /></p>
+                      <p>Temp: <span id="d0-temp"></span> F</p>
+                      <p>Wind: <span id="d0-wind_speed"></span> MPH</p>
+                      <p>Humidity: <span id="d0-humidity"></span>%</p>
+                      <p>UV Index: <span id="d0-uvi"></span></p>
+                    </div>
+                  
 
-                  <div class="card">
-                    <p><span id="d2-date"></span></p>
-                    <p>Temp: <span id="d2-temp"></span> F</p>
-                    <p>Wind: <span id="d2-wind_speed"></span> MPH</p>
-                    <p>Humidity: <span id="d2-humidity"></span>%</p>
-                    <p>UV Index: <span id="d2-uvi"></span></p>
-                  </div>
+                 
+                    <div class="card daily-card">
+                      <p><span id="d1-date"></span></p>
+                      <p><img id="d1-weather" /></p>
+                      <p>Temp: <span id="d1-temp"></span> F</p>
+                      <p>Wind: <span id="d1-wind_speed"></span> MPH</p>
+                      <p>Humidity: <span id="d1-humidity"></span>%</p>
+                      <p>UV Index: <span id="d1-uvi"></span></p>
+                    </div>
+                  
 
-                  <div class="card">
-                    <p><span id="d3-date"></span></p>
-                    <p>Temp: <span id="d3-temp"></span> F</p>
-                    <p>Wind: <span id="d3-wind_speed"></span> MPH</p>
-                    <p>Humidity: <span id="d3-humidity"></span>%</p>
-                    <p>UV Index: <span id="d3-uvi"></span></p>
-                  </div>
+                  
+                    <div class="card daily-card">
+                      <p><span id="d2-date"></span></p>
+                      <p><img id="d2-weather" /></p>
+                      <p>Temp: <span id="d2-temp"></span> F</p>
+                      <p>Wind: <span id="d2-wind_speed"></span> MPH</p>
+                      <p>Humidity: <span id="d2-humidity"></span>%</p>
+                      <p>UV Index: <span id="d2-uvi"></span></p>
+                    </div>
+                  
 
-                  <div class="card">
-                    <p><span id="d4-date"></span></p>
-                    <p>Temp: <span id="d4-temp"></span> F</p>
-                    <p>Wind: <span id="d4-wind_speed"></span> MPH</p>
-                    <p>Humidity: <span id="d4-humidity"></span>%</p>
-                    <p>UV Index: <span id="d4-uvi"></span></p>
-                  </div>
+                  
+                    <div class="card daily-card">
+                      <p><span id="d3-date"></span></p>
+                      <p><img id="d3-weather" /></p>
+                      <p>Temp: <span id="d3-temp"></span> F</p>
+                      <p>Wind: <span id="d3-wind_speed"></span> MPH</p>
+                      <p>Humidity: <span id="d3-humidity"></span>%</p>
+                      <p>UV Index: <span id="d3-uvi"></span></p>
+                    </div>
+                
+
+                 
+                    <div class="card daily-card">
+                      <p><span id="d4-date"></span></p>
+                      <p><img id="d4-weather" /></p>
+                      <p>Temp: <span id="d4-temp"></span> F</p>
+                      <p>Wind: <span id="d4-wind_speed"></span> MPH</p>
+                      <p>Humidity: <span id="d4-humidity"></span>%</p>
+                      <p>UV Index: <span id="d4-uvi"></span></p>
+                    </div>
+                  
+
                 </div>
             </div>
         </div>
