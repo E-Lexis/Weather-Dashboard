@@ -27,3 +27,5 @@ THEN I am again presented with current and future conditions for that city
 ```
 
 ## Site Image
+
+![Capture](https://i.imgur.com/A9Uq3Ba.png)
